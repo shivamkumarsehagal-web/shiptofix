@@ -1,0 +1,38 @@
+ShipToFix — Proprietary Software Notice
+=========================================
+
+Copyright (c) 2026 ShipToFix. All rights reserved.
+
+This is NOT open-source software. No license is granted by publication.
+
+PERMITTED
+---------
+End users may freely USE the hosted tool at its official location:
+
+    https://shivamkumarsehagal-web.github.io/shiptofix/
+
+for checking GSTINs of their own invoices. No account or payment required.
+
+NOT PERMITTED (without prior written permission)
+------------------------------------------------
+- Copying, reproducing, or redistributing this code or the hosted page
+- Hosting mirrors, forks, or modified copies, public or private
+- Reverse-engineering the deployment for commercial reuse
+- Using the name "ShipToFix", its wordmark, or its UI copy for
+  competing products or services
+
+ENFORCEMENT
+-----------
+Unauthorized copies hosted on GitHub or other platforms will be pursued
+via DMCA takedown and platform abuse reports. The tool's distinctive
+error-message copy, layout, and branding are claimed as original
+expression and trade dress.
+
+Licensing / permission requests: open an issue in this repository.
+
+NOTE ON DATA
+------------
+GSTIN structure, state codes, and the checksum algorithm are public
+knowledge published by GSTN/Government of India; no claim is made over
+the underlying law or data, only over this implementation, its copy,
+and its presentation.
