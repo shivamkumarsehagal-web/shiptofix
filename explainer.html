@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ship-to GSTIN errors 2323, 5002, 2325, 3039, 5001 — what they mean and how to fix them | ShipToFix</title>
+<meta name="description" content="Ship-to GSTIN errors 2323, 5002, 2325, 3039 and 5001 explained in plain words, with fixes. These are GSTN's announced ship-to rules (due 1 Aug 2026, currently on hold) — plus a free check you can run on your invoice file now, while a fix is still cheap.">
+<style>
+  :root{
+    --teal:#0EA5E9; --teal-dark:#0284C7; --ink:#0f172a; --muted:#475569;
+    --line:#e2e8f0; --bg:#ffffff; --soft:#f0f9ff; --warn:#fffbeb; --warnline:#f59e0b;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+       color:var(--ink);background:var(--bg);line-height:1.6;font-size:17px}
+  .wrap{max-width:760px;margin:0 auto;padding:24px 18px 64px}
+  header.top{border-bottom:3px solid var(--teal);padding:18px 0 14px;margin-bottom:24px}
+  .brand{font-weight:700;font-size:20px;color:var(--ink);text-decoration:none}
+  .brand span{color:var(--teal-dark)}
+  h1{font-size:30px;line-height:1.25;margin:10px 0 12px}
+  h2{font-size:22px;margin:36px 0 8px;line-height:1.3}
+  h3{font-size:18px;margin:22px 0 6px}
+  p{margin:8px 0}
+  .lede{font-size:18px;color:var(--muted)}
+  .status{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--teal-dark);
+          border-radius:6px;padding:14px 18px;margin:20px 0}
+  .err{border:1px solid var(--line);border-left:4px solid var(--teal);border-radius:6px;padding:16px 18px;margin:18px 0;background:#fff}
+  .err h2{margin-top:0;font-size:20px}
+  .code{display:inline-block;background:var(--soft);border:1px solid var(--line);border-radius:4px;
+        padding:0 8px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:15px}
+  .label{font-weight:700}
+  .cta{background:var(--soft);border:1px solid var(--line);border-radius:8px;padding:20px;margin:28px 0;text-align:left}
+  .cta a.btn{display:inline-block;background:var(--teal);color:#fff;text-decoration:none;font-weight:700;
+             padding:12px 20px;border-radius:6px;margin-top:8px}
+  .cta a.btn:hover{background:var(--teal-dark)}
+  .limits{background:var(--warn);border:1px solid var(--warnline);border-radius:6px;padding:14px 18px;margin:28px 0}
+  .faq h3{border-top:1px solid var(--line);padding-top:16px}
+  footer{border-top:1px solid var(--line);margin-top:44px;padding-top:16px;color:var(--muted);font-size:15px}
+  a{color:var(--teal-dark)}
+  ul{margin:8px 0 8px 20px;padding:0}
+  li{margin:4px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <a class="brand" href="index.html">Ship<span>To</span>Fix</a>
+</header>
+
+<main>
+<h1>Ship-to GSTIN errors: 2323, 5002, 2325, 3039, 5001 — what they mean, and how to fix them before the e-way bill</h1>
+<p class="lede">GSTN announced mandatory Ship-to GSTIN rules for 1 August 2026, then put them on hold on 29 July 2026. No new date has been announced. When the mandate returns, these five error codes are the rejections your invoices will hit. Each one is explained below in plain words, with the fix — so the check happens now, while it is still cheap.</p>
+
+<div class="status">
+  <p style="margin:0"><strong>Status, October 2026.</strong> The Ship-to GSTIN mandate was due 1 August 2026 and was put on hold on 29 July 2026, with the earlier advisories withdrawn. A GSTN FAQ updated 13 October 2026 still gives no new date. This page describes the <em>announced</em> rules, so your ship-to masters are clean before the mandate returns. Nothing below claims a rejection is happening today.</p>
+</div>
+
+<p>Under the announced rules, the pattern is the same in every case: the portal checks your ship-to details at the moment you generate the IRN or the e-way bill. By then the invoice is already written. Checking the file <em>before</em> that step is the only point where a mistake is still cheap to correct.</p>
+
+<section class="err" id="error-5002">
+  <h2><span class="code">Error 5002</span> — E-way bill rejected 5002: Ship-to GSTIN is missing</h2>
+  <p><span class="label">What it means:</span> Ship-to details (name and address) are present on the invoice, but the Ship-to GSTIN field is empty. Under the announced rules, that field becomes mandatory whenever ship-to details are given — and the e-way bill is rejected when it is empty.</p>
+  <p><span class="label">Why it happens:</span> The invoice was raised the old way — bill-to details filled, ship-to address typed in, ship-to GSTIN left blank because it was optional before. It also happens when the billing software defaults the ship-to GSTIN to blank for a delivery address that is not the buyer's own premises.</p>
+  <p><span class="label">Fix:</span> Enter the GSTIN of the place where the goods are actually delivered — the consignee's GSTIN for that location. If the consignee is unregistered, do not leave the field blank: enter <span class="code">URP</span> (Unregistered Person). Blank fails. URP is accepted.</p>
+</section>
+
+<section class="err" id="error-2323">
+  <h2><span class="code">Error 2323</span> — Ship to GSTIN error 2323: Bill-to and Ship-to GSTIN are the same</h2>
+  <p><span class="label">What it means:</span> In a bill-to / ship-to transaction, the Bill-to GSTIN and the Ship-to GSTIN must not be identical. Error 2323 is raised when both fields carry the same GSTIN.</p>
+  <p><span class="label">Why it happens:</span> The customer master defaults the buyer's GSTIN into both fields. The buyer is one party; the goods are delivered to a different party or a different registration of that party — a depot, a job site, a distributor's warehouse. The software copies the billing GSTIN across and the portal rejects it.</p>
+  <p><span class="label">Fix:</span> Put the delivery party's own GSTIN in the ship-to field. If the goods genuinely go to the same registration that is billed, it is not a bill-to / ship-to case — remove the separate ship-to details instead of duplicating the GSTIN.</p>
+</section>
+
+<section class="err" id="error-2325">
+  <h2><span class="code">Error 2325</span> — Ship-to state code does not match the Ship-to GSTIN</h2>
+  <p><span class="label">What it means:</span> The first two digits of a GSTIN are the state code. Error 2325 is raised when the state in the ship-to address does not match the state code of the Ship-to GSTIN.</p>
+  <p><span class="label">Why it happens:</span> The GSTIN belongs to the consignee's registration in one state, but the delivery address is in another — common when a company has registrations in several states and the wrong one is picked from the master. It also happens with a stale address after a warehouse moves across a state border.</p>
+  <p><span class="label">Fix:</span> Use the GSTIN of the consignee's registration in the state where the goods are delivered. The address, the state, and the GSTIN must all point to the same place.</p>
+</section>
+
+<section class="err" id="error-3039">
+  <h2><span class="code">Error 3039</span> — Ship-to PIN code does not belong to the ship-to state</h2>
+  <p><span class="label">What it means:</span> The PIN code in the ship-to address must fall inside the ship-to state. Error 3039 is raised when the PIN belongs to a different state than the one stated.</p>
+  <p><span class="label">Why it happens:</span> A copy-paste error in the delivery address, an old PIN after a relocation, or the head-office PIN carried into a branch delivery address. The state name gets corrected; the PIN does not.</p>
+  <p><span class="label">Fix:</span> Correct the PIN to the actual delivery location's PIN, and confirm the state field matches that PIN. Check the address against the consignee's own records, not against your last invoice to them.</p>
+</section>
+
+<section class="err" id="error-5001">
+  <h2><span class="code">Error 5001</span> — Ship-to GSTIN missing in the e-way bill generated from an IRN</h2>
+  <p><span class="label">What it means:</span> When an e-way bill is generated from an existing IRN (invoice reference number), the ship-to GSTIN in the e-way bill request is mandatory under the announced rules. Error 5001 is raised when it is not provided in that step.</p>
+  <p><span class="label">Why it happens:</span> The invoice and IRN were created without complete ship-to details, and the person generating the e-way bill tries to complete them at dispatch — or the details exist in one system and not in the other.</p>
+  <p><span class="label">Fix:</span> Make sure the ship-to GSTIN is present when the e-way bill is generated from the IRN. If it was missing from the start, the gap has to be closed in the invoice data — see the IRN warning below, because under the announced rules, for B2B and SEZ transactions a ship-to GSTIN set at IRN stage cannot be changed afterwards.</p>
+</section>
+
+<h2>The one mistake you cannot undo later</h2>
+<p>Under the announced rules, for B2B and SEZ transactions, the ship-to details set at IRN generation are carried into the e-way bill and <strong>cannot be amended at the e-way bill stage</strong>. A wrong Ship-to GSTIN entered at invoice stage is locked in. The correction then is not an edit — it is cancelling and redoing the document, with the vehicle waiting. This is why these five checks belong before the IRN, not after a rejection.</p>
+
+<h2>The URP rule, in one line</h2>
+<p>If the consignee is unregistered, enter <span class="code">URP</span> in the Ship-to GSTIN field. Never leave it blank. Blank triggers error 5002; URP does not.</p>
+
+<div class="cta">
+  <p style="margin-top:0"><strong>Check your file before the e-way bill.</strong></p>
+  <p>ShipToFix checks a single GSTIN, or a whole invoice file — Excel (.xlsx), CSV or Tally export — for exactly these problems: missing ship-to GSTIN, bill-to and ship-to the same, state and PIN mismatches. Every error comes back in plain words against its invoice number. You fix it in the same screen and download the corrected file. It runs in your browser. Nothing is uploaded anywhere.</p>
+  <a class="btn" href="index.html">Check your file — free</a>
+  <p style="margin-bottom:0">Tool: <a href="https://shivamkumarsehagal-web.github.io/shiptofix/">https://shivamkumarsehagal-web.github.io/shiptofix/</a></p>
+</div>
+
+<div class="limits">
+  <p style="margin:0"><strong>What ShipToFix does not do.</strong> It checks format and consistency only — GSTIN structure, state codes, PIN-to-state matching, bill-to versus ship-to. It does not check live GSTN status: it cannot tell you whether a GSTIN is active, cancelled or suspended. It does not submit anything to any government portal. For live status, use the GST portal.</p>
+</div>
+
+<section class="faq">
+<h2>Questions people search for</h2>
+
+<h3>Why was my e-way bill rejected with error 5002?</h3>
+<p>Under GSTN's announced ship-to rules, when ship-to details are given but the Ship-to GSTIN field is empty, the e-way bill is rejected with 5002. Those rules were due 1 August 2026 and are currently on hold — but the fix is the same either way: enter the consignee's GSTIN for the delivery location, or URP if the consignee is unregistered.</p>
+
+<h3>What is ship to GSTIN error 2323?</h3>
+<p>The Bill-to GSTIN and the Ship-to GSTIN on the invoice are identical. In a bill-to / ship-to transaction they must be different parties. Enter the delivery party's own GSTIN in the ship-to field.</p>
+
+<h3>What does error 2325 mean?</h3>
+<p>The state in the ship-to address does not match the state code (the first two digits) of the Ship-to GSTIN. Use the consignee's GSTIN registration from the state where the goods are delivered.</p>
+
+<h3>What does error 3039 mean?</h3>
+<p>The ship-to PIN code belongs to a different state than the ship-to state on the invoice. Correct the PIN to the delivery location's actual PIN.</p>
+
+<h3>What does error 5001 mean?</h3>
+<p>The e-way bill was generated from an IRN without the ship-to GSTIN in the e-way bill request, where it is mandatory under the announced rules. The ship-to GSTIN has to be supplied in that step.</p>
+
+<h3>Can I correct a wrong Ship-to GSTIN after the IRN is generated?</h3>
+<p>Under the announced rules, for B2B and SEZ transactions, no — ship-to details set at IRN stage cannot be amended when the e-way bill is generated from that IRN. The check has to happen before the IRN is created.</p>
+
+<h3>What if the consignee has no GSTIN?</h3>
+<p>Enter URP in the Ship-to GSTIN field. An unregistered consignee is a valid case; a blank field is not.</p>
+
+<h3>Does ShipToFix check whether a GSTIN is active or cancelled?</h3>
+<p>No. It checks format and consistency in your file. Live registration status is only available on the GST portal, and ShipToFix states this plainly rather than guessing.</p>
+
+<h3>Is the Ship-to GSTIN mandate in force right now?</h3>
+<p>No. GSTN announced it for 1 August 2026, put it on hold on 29 July 2026, and a FAQ updated 13 October 2026 still names no new date. The value of checking now is readiness: clean ship-to masters before the mandate returns.</p>
+</section>
+
+</main>
+
+<footer>
+  <p>ShipToFix — check a GSTIN before the e-way bill. Free. Runs in your browser; nothing leaves this tab.</p>
+  <p><a href="index.html">Open the tool</a></p>
+</footer>
+
+</div>
+</body>
+</html>
